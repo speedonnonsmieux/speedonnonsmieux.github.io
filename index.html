@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accueil</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --maxw: 920px;
+      --pad: clamp(20px, 4vw, 44px);
+      --radius: 18px;
+      --border: rgba(127,127,127,.25);
+      --bg: rgba(127,127,127,.06);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 28px;
+      font-family: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden; /* évite tout scroll horizontal accidentel */
+    }
+
+    main {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: var(--pad);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    h1 {
+      margin: 0 0 26px;
+      text-align: center;
+      font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+      font-weight: 700;
+    }
+
+    p { margin: 0 0 16px; }
+
+    .signature {
+      text-align: left;
+      margin-top: 22px;
+      font-weight: 500;
+    }
+
+    hr {
+      margin: 34px 0;
+      border: none;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .signataires-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+        .signataires-title-small {
+      text-align: center;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    
+    /* Titres des sections */
+    h3 {
+      margin: 24px 0 12px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-align: center;
+      width: 100%;
+    }
+
+    .signatures {
+      display: grid;
+      gap: 26px;
+    }
+
+    /* Listes de signataires: centrées + sans puces + anti-dépassement */
+    .signatures ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      columns: 3;               /* desktop */
+      column-gap: 32px;
+      text-align: center;
+      max-width: 100%;
+      column-fill: balance;
+    }
+/* Collectifs & Associations (tous supports) */
+.signatures section:first-of-type ul {
+  columns: 1;
+  column-gap: 0;
+  text-align: center;
+}
+
+.signatures section:first-of-type li {
+  text-align: center;
+}
+
+    .signatures li {
+      break-inside: avoid;
+      text-align: center;
+      margin: 0 0 6px;
+      overflow-wrap: anywhere;   /* empêche un nom long de dépasser */
+      word-break: break-word;    /* fallback */
+      hyphens: auto;
+    }
+
+    /* Tablette -> 2 colonnes */
+    @media (max-width: 900px) {
+      .signatures ul {
+        columns: 2;
+        column-gap: 24px;
+      }
+    }
+
+    /* Mobile -> 2 colonnes (et ne dépasse pas) */
+    @media (max-width: 600px) {
+      body { padding: 14px; }
+      main { padding: 18px; }
+
+      /* Titres bien centrés sur mobile (sûreté) */
+      h3 {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Noms en 2 colonnes sur mobile */
+      .signatures ul {
+        columns: 2;
+        column-gap: 18px;
+      }
+
+.signatures section:first-of-type li {
+  text-align: center;
+}
+
+    /* Sur mobile : Collectifs & Associations en 1 colonne centrée */
+@media (max-width: 600px) {
+  .signatures section:first-of-type ul {
+    columns: 1;          
+    column-gap: 0;
+    text-align: center;  
+  }
+
+  .signatures section:first-of-type li {
+    text-align: center;
+  }
+}
+
+    
+      .signatures li {
+        font-size: 0.98rem;
+        line-height: 1.4;
+      }
+    
+    }
+    
+}
+
+
+}
+
+.social-footer {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+
+    .social-links .social-pas-links {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-2px);
+  background: rgba(127,127,127,.12);
+}
+
+.social-links img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+/* Footer réseaux sociaux */
+.social-footer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;   
+  align-items: center;      
+  gap: 16px;                
+}
+
+.social-links {
+  display: flex;
+      gap: 20px;
+      justify-content:center;
+}
+
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Lettre ouverte à Médecins du Monde et à l’équipe de Speedons</h1>
+
+    <p>Au comité de direction de Médecins du Monde, et à toutes les personnes impliquées dans l’organisation de l'événement Speedons.</p>
+    <p>Nous sommes un collectif d’acteur•rice•s du milieu du speedrun, et nous nous adressons à vous aujourd’hui via cette lettre pour vous faire part de notre profond malaise au regard des récentes accusations qui ont été portées à l’encontre de L’ONG Médecins du Monde.</p>
+    <p>Médecins du Monde nous a toujours semblé porteur de valeurs humanistes fortes dont nous nous sentons tou•te•s proches, et qui ont été un moteur puissant de l’engagement dont nous avons fait preuve à vos côtés en participant à faire grandir et vivre Speedons depuis 5 ans.</p>
+    <p>Nous sommes aujourd’hui extrêmement troublé•e•s par les révélations qui ont été faites par Mediapart dans leur article du 11 novembre 2025, et ce d’autant plus qu’elles impliquent directement Joël Weiler, qui est depuis les débuts de Speedons la figure représentative de MdM au sein de l'événement.</p>
+    <p>Les faits de harcèlement moral, d’insultes et de toxicité managériale qui sont décrits sont aux antipodes des valeurs de tolérance, d'égalité et d'inclusivité que nous souhaitons porter, et qui sont mises en avant par Speedons depuis plusieurs éditions. Ces valeurs sont de notre point de vue une pierre angulaire du succès de cet événement, et il nous semble à ce titre impossible de vivre sereinement cette édition 2026 sans que ne soit abordé ce sujet de manière transparente et constructive.</p>
+    <p>En premier lieu, nous estimons inconcevable que Joël Weiler conserve son rôle de représentant de MdM à Speedons. Si nous pouvons tout à fait envisager que les faits évoqués puissent être nuancés ou opposés, et qu’ils font l’objet de procédures de justice, sa présence à Speedons enverrait une forte impression de déni et d'étouffement de l'affaire, en totale contradiction avec les valeurs défendues par l'ONG et par Speedons. Cela serait source d’incompréhension et de grande colère pour nombre d’entre nous, et amènerait plusieurs personnes impliquées dans Speedons depuis plusieurs années à remettre en question leur participation à l’événement.</p>
+    <p>En second lieu, nous estimons que cette prochaine édition de Speedons ne peut avoir lieu sans que la situation ne soit évoquée publiquement avant l'événement, sous forme d’un communiqué commun de Speedons et de MdM. Nous sommes nombreux•ses à donner du temps, de l’énergie et de l’argent pour la réussite de cet événement. Si MdM et Speedons cherchaient à éluder les faits, ce silence marquerait pour nous une vraie rupture dans la confiance que nous portons envers vos deux organisations.</p>
+    <p>Il y a là une opportunité de montrer au public et aux personnes faisant vivre l’événement que Médecins du Monde est capable de se remettre en question suite à des faits graves, et d’en tirer les leçons pour en sortir plus digne et plus en phase avec les valeurs que l’ONG défend publiquement. C'est une occasion pour MdM et pour Speedons de réaffirmer ces valeurs, de conserver la confiance de vos acteur•rice•s et de vos publics et de montrer à tous les événements caritatifs que ce genre d'action et d'éthique sont possibles et bénéfiques pour l'existence de ces événements.</p>
+    <p>Nous espérons que vous entendrez cet appel pour ce qu’il est : un espoir que vous répondrez à cette situation non pas uniquement par des discours de gestion de crise, mais par une vraie prise de conscience menant à des actions concrètes.</p>
+
+    <p class="signature"><strong>Respectueusement, le collectif de signataires.</strong></p>
+
+    <hr />
+
+  <div class="signataires-title-small">
+    Pour signer, contactez-nous :
+  </div>
+
+  <div class="social-links">
+    <a
+      href="https://bsky.app/profile/speedonnonsmieux.bsky.social"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Compte Bluesky"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg"
+        alt="Bluesky"
+        loading="lazy"
+        width="24"
+        height="24"
+      />
+    </a>
+
+    
+    <table>
+      <tr>
+	<td align="center">
+	  <span class="social-pas-links">
+	    <img
+              src="https://upload.wikimedia.org/wikipedia/fr/4/4f/Discord_Logo_sans_texte.svg"
+              alt="Discord"
+              loading="lazy"
+              width="24"
+              height="24"
+	      />
+	  </span>
+	</td>
+      </tr>
+      <tr>
+	<td>speedonnonsmieux</td>
+      </tr>
+    </table>
+    
+    <a
+      href="https://www.instagram.com/speedonnonsmieux"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Compte Instagram"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+        alt="Instagram"
+        loading="lazy"
+        width="24"
+        height="24"
+      />
+    </a>
+  </div>
+    <hr />
+    <div class="signataires-title">Liste des signataires</div>
+
+    <div class="signatures">
+      <section>
+        <h3>Collectifs et Associations :</h3>
+        <ul>
+          <li>Le staff Fast and Fabulous</li>
+          <li>Furry Rapide</li>
+          <li>JPP</li>
+          <li>Le French Restream</li>
+          <li>Association PB²</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Signataires Individuel•les :</h3>
+        <ul>
+	  <script>
+	    let lines = ["Amélia","Anenzoras","Animach1ne","Antenio","Auroreqoi",
+			 "Balicke","Blake","Bloupeuh","Blüh","Bouhchon",
+			 "Bouzny","Chevilletortue","Clothilde","Darki","DarthColette",
+			 "ddtie","DDYDLS","DrakeLeLionBlanc","Ducky","Evandar",
+			 "Fee","Getarez","Givr_","GrimmGuiGui","GrosHiken",
+			 "JeeWee","JeSigneIci?","Kit","Kurojin","La_Doods",
+			 "LaBoulangerire","Lenny_Len_","LeRemiii","LeyCa","Lobsteure",
+			 "Loos Gucreen","Maglor","MeikainaKibou","MistyGriotte","MixMyu_",
+			 "Nathalie","Neetsel","Neivee","Oni","Oxyde",
+			 "Perlot_","Pikkukitto","Ploplavraie","Qlex","rainboww",
+			 "Raivals","Riddou","Senen","Shira","Shuu / Cédric","Synahel",
+			 "slanmetha","Thomiño","Tizona","Tutank","Vintagix",
+			 "Yasumy","Zadadaz","Zenibuka","Zulu"];
+	    lines.sort((a, b) => a.localeCompare(b));
+	    for (let step = 0; step < lines.length; step++) {
+		document.write("<li>" + lines[step] + "</li>");
+	    }
+          </script>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+
+
+
+</body>
+</html>
